@@ -1,6 +1,8 @@
 from scipy.io import loadmat
 import matplotlib.pyplot as plt
 
+# mnist data set have 70000 image by 60000 trainings and 10000 testings
+
 mnist_raw = loadmat("D:\Benz\Resources\DBMS\dataSci\machineLearning\ML\mnist-original.mat")
 
 mnist = {
@@ -13,7 +15,7 @@ print(mnist["data"])
 print(mnist["data"].shape)
 
 # 0-69999
-index = 10001
+index = 6999
 
 x,y = mnist["data"],mnist["target"]
 
