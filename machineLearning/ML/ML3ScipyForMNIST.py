@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # mnist data set have 70000 image by 60000 trainings and 10000 testings
 
-mnist_raw = loadmat("D:\Benz\Resources\DBMS\dataSci\machineLearning\ML\mnist-original.mat")
+mnist_raw = loadmat("ML\mnist-original.mat")
 
 mnist = {
     "data": mnist_raw["data"].T,
