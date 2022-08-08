@@ -78,7 +78,6 @@ def displayConfusionMatrix(cm,cmap=plt.cm.GnBu):
         plt.text(j,i,format(cm[i,j],'d'),
         horizontalalignment='center',
         color='white' if cm[i,j]>thresh else 'black')
-
     plt.tight_layout()
     plt.ylabel('Actually')
     plt.xlabel('Prediction')
