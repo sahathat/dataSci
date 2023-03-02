@@ -24,8 +24,8 @@ confirmed %>% summarise(sd_4_2020 = sd(confirmed$'4_1_2020'),var_4_2020 = var(co
 
 # filter data and show count
 confirmed %>% group_by(Country) %>% 
-  select(april = '12_1_2020') %>%
-  summarise(infected = sum(april)) %>% 
+  select(december = '12_1_2020') %>%
+  summarise(infected = sum(december)) %>% 
   filter(infected == 0) %>% count()
 
 # show top 10
@@ -38,4 +38,20 @@ confirmed %>% select(State,Country,infected = '4_1_2021') %>% arrange(desc(infec
 hist(confirmed$'4_1_2021', binwidth = 10)
 
 # Basic histogram
-comfirmed %>% select('4_1_2021') %>% filter('4_1_2021' < 10000000) %>% ggplot(confirmed, aes(x=)) + geom_histogram(binwidth = 100000)
+ggplot(confirmed, aes(x=confirmed$'4_1_2021')) + geom_histogram(binwidth = 1000) + 
+xlim(c(0, 100000))
+
+# Linear regression
+
+chinaConfirmed <- confirmed %>% group_by(Country) %>% 
+  select(april2020 = '4_1_2020', dec2020 = '12_1_2020', april2021 = '4_1_2021') %>%
+  summarise(april2020 = sum(april2020),dec2020 = sum(dec2020),april2021 = sum(april2021)) %>% 
+  filter(Country == "China")
+chinaConfirmed
+
+df <- list(date = c(4,12,16), infected  = c(82361,92993,101754))
+
+lmInfect = lm(infected~date, data = df) # Create the linear regression
+summary(lmInfect) # Review the results
+pred <- 75568.6 + 1575.1*24
+pred
