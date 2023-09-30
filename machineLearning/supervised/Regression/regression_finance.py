@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import math
 from sklearn.metrics import mean_squared_error, r2_score
 
-st.title("400k NYSE random investments + financial ratios with Buy price in BAC company")
+st.title("400k NYSE random investments + financial ratios with Buy price in each company")
 labels = ('BBY', 'BAC', 'AXP', 'KSS', 'JPM', 'PEP', 'FB', 'UBS', 'DB', 'SC',
        'GM', 'M', 'AMZN', 'TSLA', 'WMT', 'MSFT', 'HMC', 'AAPL', 'COST',
        'NVDA', 'KO', 'HOG', 'PG', 'F', 'TGT', 'GOOG', 'OR')
