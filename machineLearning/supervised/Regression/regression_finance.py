@@ -15,8 +15,6 @@ labels = ('BBY', 'BAC', 'AXP', 'KSS', 'JPM', 'PEP', 'FB', 'UBS', 'DB', 'SC',
        'NVDA', 'KO', 'HOG', 'PG', 'F', 'TGT', 'GOOG', 'OR')
 company=st.selectbox("Select company:", labels)
 
-
-
 df = pd.read_csv('https://raw.githubusercontent.com/sahathat/dataSci/main/machineLearning/supervised/Regression/final_transactions_dataset.csv', sep=",")
 bank_df = df[df["company"]==company].sort_values('date_BUY_fix')
 X_plot = bank_df[['date_BUY_fix','Volatility_Buy','inflation','price_BUY']].copy().drop_duplicates()
@@ -36,7 +34,7 @@ poly_features = PolynomialFeatures(degree=deg)
 X_poly = poly_features.fit_transform(X_select)
 
 # Make predictions for the same X values
-file_name = f"https://github.com/sahathat/dataSci/blob/main/machineLearning/supervised/Regression/{company}_polynomial_model.pkl"
+file_name = f"machineLearning/supervised/Regression/{company}_polynomial_model.pkl"
 load_model = joblib.load(file_name)
 Y_train_pred = load_model.predict(X_poly)
 
