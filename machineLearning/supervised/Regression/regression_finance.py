@@ -36,7 +36,7 @@ poly_features = PolynomialFeatures(degree=deg)
 X_poly = poly_features.fit_transform(X_select)
 
 # Make predictions for the same X values
-file_name = company+"_polynomial_model.pkl"
+file_name = f"https://github.com/sahathat/dataSci/blob/main/machineLearning/supervised/Regression/{company}_polynomial_model.pkl"
 load_model = joblib.load(file_name)
 Y_train_pred = load_model.predict(X_poly)
 
