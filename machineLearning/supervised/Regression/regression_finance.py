@@ -15,7 +15,9 @@ labels = ('BBY', 'BAC', 'AXP', 'KSS', 'JPM', 'PEP', 'FB', 'UBS', 'DB', 'SC',
        'NVDA', 'KO', 'HOG', 'PG', 'F', 'TGT', 'GOOG', 'OR')
 company=st.selectbox("Select company:", labels)
 
-df = pd.read_csv('final_transactions_dataset.csv')
+
+
+df = pd.read_csv('https://raw.githubusercontent.com/sahathat/dataSci/main/machineLearning/supervised/Regression/final_transactions_dataset.csv', sep=",")
 bank_df = df[df["company"]==company].sort_values('date_BUY_fix')
 X_plot = bank_df[['date_BUY_fix','Volatility_Buy','inflation','price_BUY']].copy().drop_duplicates()
 
